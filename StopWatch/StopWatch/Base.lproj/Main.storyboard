@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StopWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,89 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIS-d1-fTa">
+                                <rect key="frame" x="0.0" y="20" width="375" height="267"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWU-4S-Ad9">
+                                        <rect key="frame" x="0.0" y="63.5" width="375" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="YiR-z7-bfw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="100"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sy0-Xf-5dg">
+                                        <rect key="frame" x="275" y="30" width="80" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="bLr-9q-xBJ"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8wR-7n-wR7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="hWU-4S-Ad9" firstAttribute="leading" secondItem="HIS-d1-fTa" secondAttribute="leading" id="6wN-OK-1eZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sy0-Xf-5dg" secondAttribute="trailing" constant="20" id="Bw6-t2-DBZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="hWU-4S-Ad9" secondAttribute="trailing" id="CKY-ZL-LQZ"/>
+                                    <constraint firstItem="hWU-4S-Ad9" firstAttribute="centerY" secondItem="HIS-d1-fTa" secondAttribute="centerY" id="FYz-ZU-ENt"/>
+                                    <constraint firstItem="Sy0-Xf-5dg" firstAttribute="top" secondItem="HIS-d1-fTa" secondAttribute="top" constant="30" id="lbB-6D-bMK"/>
+                                    <constraint firstItem="hWU-4S-Ad9" firstAttribute="centerX" secondItem="HIS-d1-fTa" secondAttribute="centerX" id="yK6-YA-U5Y"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FY-Pt-GWl">
+                                <rect key="frame" x="0.0" y="287" width="187.5" height="380"/>
+                                <color key="backgroundColor" red="0.33558923006057739" green="0.36246839165687561" blue="0.95300102233886719" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="playButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="22W-bx-Lkw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVi-5W-Qn1">
+                                <rect key="frame" x="187.5" y="287" width="187.5" height="380"/>
+                                <color key="backgroundColor" red="0.39815762640000002" green="0.74619466069999996" blue="0.031657174230000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="pause"/>
+                                <connections>
+                                    <action selector="pauseButtonDidTouch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h90-eO-CoU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HVi-5W-Qn1" firstAttribute="width" secondItem="0FY-Pt-GWl" secondAttribute="width" id="2m8-TS-IaZ"/>
+                            <constraint firstItem="HVi-5W-Qn1" firstAttribute="leading" secondItem="0FY-Pt-GWl" secondAttribute="trailing" id="3pR-wU-dVz"/>
+                            <constraint firstAttribute="trailing" secondItem="HIS-d1-fTa" secondAttribute="trailing" id="5dL-dM-FV7"/>
+                            <constraint firstItem="0FY-Pt-GWl" firstAttribute="top" secondItem="HIS-d1-fTa" secondAttribute="bottom" id="7un-HE-lmR"/>
+                            <constraint firstItem="HVi-5W-Qn1" firstAttribute="height" secondItem="0FY-Pt-GWl" secondAttribute="height" id="Bz6-uf-0sx"/>
+                            <constraint firstItem="HIS-d1-fTa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FtE-ej-75x"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HVi-5W-Qn1" secondAttribute="bottom" id="bnT-op-Yfa"/>
+                            <constraint firstItem="0FY-Pt-GWl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g6y-zf-ThO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0FY-Pt-GWl" secondAttribute="bottom" id="iDL-Fq-lQj"/>
+                            <constraint firstItem="HIS-d1-fTa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jtU-ok-Q4x"/>
+                            <constraint firstItem="HIS-d1-fTa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="mF6-FP-16e"/>
+                            <constraint firstItem="HVi-5W-Qn1" firstAttribute="top" secondItem="HIS-d1-fTa" secondAttribute="bottom" id="uUD-l6-Rfz"/>
+                            <constraint firstAttribute="trailing" secondItem="HVi-5W-Qn1" secondAttribute="trailing" id="y8a-lJ-kb9"/>
+                            <constraint firstItem="HVi-5W-Qn1" firstAttribute="leading" secondItem="0FY-Pt-GWl" secondAttribute="trailing" id="zoJ-zD-HEz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pauseBtn" destination="HVi-5W-Qn1" id="NiF-pL-6Gx"/>
+                        <outlet property="playBtn" destination="0FY-Pt-GWl" id="aFM-YA-555"/>
+                        <outlet property="timeLabel" destination="hWU-4S-Ad9" id="mtD-e5-chz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause" width="42" height="56"/>
+        <image name="play" width="48" height="61"/>
+    </resources>
 </document>
